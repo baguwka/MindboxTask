@@ -23,7 +23,7 @@ namespace MindboxTaskLib.Internal
             var desiredCalculator = CalculatorsContainer.Items
                 .FirstOrDefault(c =>
                 {
-                    var attr = CustomAttributeExtensions.GetCustomAttribute<ForShapeAttribute>((MemberInfo) c.GetType(), false);
+                    var attr = c.GetType().GetCustomAttribute<ForShapeAttribute>(false);
                     return attr.ShapeTarget?.Equals(shapeType) ?? false;
                 });
 

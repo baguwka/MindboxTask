@@ -7,6 +7,11 @@ namespace MindboxTaskLib.Calculators
     [ForShape(typeof(Circle))]
     public class CircleShapeCalculator : IShapeCalculator
     {
+        public CircleShapeCalculator()
+        {
+            
+        }
+
         public decimal CalculateSquare(IShape shape)
         {
             throw new NotImplementedException();

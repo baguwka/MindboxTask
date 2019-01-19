@@ -14,11 +14,12 @@ namespace MindboxTaskLib.Internal
         [NotNull]
         [ItemNotNull]
         public ICollection<IShapeCalculator> Items {
-            get {
+            get 
+            {
                 if (_Items != null)
                     return _Items;
 
-                var calculatorTypes = ReflectionUtils.GetImplementationsOfInterface(typeof(IShapeCalculator));
+                var calculatorTypes = ReflectionUtils.GetImplementationsOfInterface<IShapeCalculator>();
                 _Items = calculatorTypes
                     .Select(t => Activator.CreateInstance(t) as IShapeCalculator)
                     .Where(c => c != null)

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using MindboxTaskLib.Exceptions;
 using MindboxTaskLib.Internal;
 using MindboxTaskLib.Shapes;
 
+[assembly: InternalsVisibleTo("MindboxTask.Testing")]
 namespace MindboxTaskLib
 {
     public class ShapeTool : IShapeTool

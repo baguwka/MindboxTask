@@ -8,14 +8,15 @@ namespace MindboxTaskLib.Utils
     internal static class ReflectionUtils
     {
         [NotNull]
-        public static ICollection<Type> GetImplementationsOfInterface<T>([NotNull] T @interface)
+        public static ICollection<Type> GetImplementationsOfInterface<T>()
         {
-            if (@interface == null) throw new ArgumentNullException(nameof(@interface));
-
             var interfaceType = typeof(T);
             var types = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(s => s.GetTypes())
-                .Where(p => interfaceType.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract)
+                .Where(p =>
+                {
+                    return interfaceType.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract;
+                })
                 .ToList();
 
             return types;
