@@ -19,7 +19,7 @@ namespace MindboxTaskLib
             return new ShapeTool(new AttributeShapeCalculatorProvider());
         }
 
-        internal ShapeTool([NotNull] IShapeCalculatorProvider calculatorProvider)
+        public ShapeTool([NotNull] IShapeCalculatorProvider calculatorProvider)
         {
             _CalculatorProvider = calculatorProvider ?? throw new ArgumentNullException(nameof(calculatorProvider));
         }

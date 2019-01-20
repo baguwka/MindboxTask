@@ -7,7 +7,7 @@ using MindboxTaskLib.Shapes;
 
 namespace MindboxTaskLib.Internal
 {
-    internal class AttributeShapeCalculatorProvider : IShapeCalculatorProvider
+    public class AttributeShapeCalculatorProvider : IShapeCalculatorProvider
     {
         private CalculatorsContainer CalculatorsContainer { get; }
 

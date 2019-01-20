@@ -4,7 +4,7 @@ using MindboxTaskLib.Shapes;
 
 namespace MindboxTaskLib.Internal
 {
-    internal interface IShapeCalculatorProvider
+    public interface IShapeCalculatorProvider
     {
         /// <exception cref="CalculatorNotFoundException"></exception>
         [NotNull]
