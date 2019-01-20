@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
+using MindboxTaskLib.Calculators;
 using MindboxTaskLib.Exceptions;
 using MindboxTaskLib.Internal;
 using MindboxTaskLib.Shapes;
@@ -25,18 +26,14 @@ namespace MindboxTaskLib
 
         public bool IsTriangleIsRectangular(Triangle triangle)
         {
-            throw new NotImplementedException();
+            var triangleCalculator = new TriangleShapeCalculator();
+            return triangleCalculator.IsTriangleIsRectangular(triangle);
         }
 
-        public decimal CalculateSquare(IShape shape)
+        public double CalculateSquare(IShape shape)
         {
             var calculator = _CalculatorProvider.ProvideCalculatorFor(shape);
-            if (calculator == null)
-            {
-                throw new CalculatorNotFoundException($"Calculator not found for shape {shape}");
-            }
-
-            return calculator.CalculateSquare(shape);
+            return calculator.AreaOf(shape);
         }
     }
 }

@@ -9,19 +9,19 @@ namespace MindboxTaskLib.Internal
 {
     internal class CalculatorsContainer
     {
-        private ICollection<IShapeCalculator> _Items;
+        private ICollection<ShapeCalculator> _Items;
 
         [NotNull]
         [ItemNotNull]
-        public ICollection<IShapeCalculator> Items {
+        public ICollection<ShapeCalculator> Items {
             get 
             {
                 if (_Items != null)
                     return _Items;
 
-                var calculatorTypes = ReflectionUtils.GetImplementationsOfInterface<IShapeCalculator>();
+                var calculatorTypes = ReflectionUtils.GetImplementationsOfInterface<ShapeCalculator>();
                 _Items = calculatorTypes
-                    .Select(t => Activator.CreateInstance(t) as IShapeCalculator)
+                    .Select(t => Activator.CreateInstance(t) as ShapeCalculator)
                     .Where(c => c != null)
                     .ToList();
 

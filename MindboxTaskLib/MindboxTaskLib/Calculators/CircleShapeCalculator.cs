@@ -1,20 +1,22 @@
 ﻿using System;
+using System.Reflection;
 using MindboxTaskLib.Internal;
 using MindboxTaskLib.Shapes;
 
 namespace MindboxTaskLib.Calculators
 {
     [ForShape(typeof(Circle))]
-    public class CircleShapeCalculator : IShapeCalculator
+    public class CircleShapeCalculator : ShapeCalculator
     {
         public CircleShapeCalculator()
         {
             
         }
 
-        public decimal CalculateSquare(IShape shape)
+        protected override double InternalCalculateAreaOf(IShape shape)
         {
-            throw new NotImplementedException();
+            var circle = (Circle)shape;
+            return Math.PI * Math.Pow(circle.Radius, 2);
         }
     }
 }

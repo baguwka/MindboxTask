@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using MindboxTaskLib.Calculators;
+using MindboxTaskLib.Exceptions;
 using MindboxTaskLib.Shapes;
 
 namespace MindboxTaskLib.Internal
@@ -15,7 +16,7 @@ namespace MindboxTaskLib.Internal
             CalculatorsContainer = new CalculatorsContainer();
         }
 
-        public IShapeCalculator ProvideCalculatorFor(IShape shape)
+        public ShapeCalculator ProvideCalculatorFor(IShape shape)
         {
             if (shape == null) throw new ArgumentNullException(nameof(shape));
 
@@ -26,6 +27,9 @@ namespace MindboxTaskLib.Internal
                     var attr = c.GetType().GetCustomAttribute<ForShapeAttribute>(false);
                     return attr.ShapeTarget?.Equals(shapeType) ?? false;
                 });
+
+            if (desiredCalculator == null)
+                throw new CalculatorNotFoundException($"Calculator not found for shape {shape}");
 
             return desiredCalculator;
         }

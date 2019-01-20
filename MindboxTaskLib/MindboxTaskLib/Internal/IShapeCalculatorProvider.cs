@@ -6,7 +6,8 @@ namespace MindboxTaskLib.Internal
 {
     internal interface IShapeCalculatorProvider
     {
-        [CanBeNull]
-        IShapeCalculator ProvideCalculatorFor([NotNull] IShape shape);
+        /// <exception cref="CalculatorNotFoundException"></exception>
+        [NotNull]
+        ShapeCalculator ProvideCalculatorFor([NotNull] IShape shape);
     }
 }

@@ -2,8 +2,8 @@
 {
     public class Triangle : IShape
     {
-        public Point PositionA { get; set; }
-        public Point PositionB { get; set; }
-        public Point PositionC { get; set; }
+        public float A { get; set; }
+        public float B { get; set; }
+        public float C { get; set; }
     }
 }
