@@ -8,6 +8,6 @@ namespace MindboxTaskLib
         bool IsTriangleIsRectangular(Triangle triangle);
 
         /// <exception cref="CalculatorNotFoundException"></exception>
-        double CalculateSquare(IShape shape);
+        double CalculateArea(IShape shape);
     }
 }

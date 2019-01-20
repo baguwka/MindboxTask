@@ -30,7 +30,7 @@ namespace MindboxTaskLib
             return triangleCalculator.IsTriangleIsRectangular(triangle);
         }
 
-        public double CalculateSquare(IShape shape)
+        public double CalculateArea(IShape shape)
         {
             var calculator = _CalculatorProvider.ProvideCalculatorFor(shape);
             return calculator.AreaOf(shape);
