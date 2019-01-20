@@ -1,3 +1,6 @@
+--postgre scripts
+--init
+
 create table public.Products
 (
 	product_id integer,
@@ -29,11 +32,13 @@ INSERT INTO public.products(product_id, name) VALUES (10, 'notepad');
 INSERT INTO public.products(product_id, name) VALUES (11, 'tomatoes');
 INSERT INTO public.products(product_id, name) VALUES (12, 'ps4');
 INSERT INTO public.products(product_id, name) VALUES (13, 'headphones');
+INSERT INTO public.products(product_id, name) VALUES (14, 'xbox');
 
 INSERT INTO public.categories(category_id, name) VALUES (1, 'food');
 INSERT INTO public.categories(category_id, name) VALUES (2, 'books');
 INSERT INTO public.categories(category_id, name) VALUES (3, 'devices');
 INSERT INTO public.categories(category_id, name) VALUES (4, 'textile');
+INSERT INTO public.categories(category_id, name) VALUES (5, 'gaming');
 
 INSERT INTO public.products_categories(product_id, category_id) VALUES (9, 1);
 INSERT INTO public.products_categories(product_id, category_id) VALUES (11, 1);
@@ -44,6 +49,15 @@ INSERT INTO public.products_categories(product_id, category_id) VALUES (4, 3);
 INSERT INTO public.products_categories(product_id, category_id) VALUES (6, 3);
 INSERT INTO public.products_categories(product_id, category_id) VALUES (12, 3);
 INSERT INTO public.products_categories(product_id, category_id) VALUES (13, 3);
+INSERT INTO public.products_categories(product_id, category_id) VALUES (12, 5);
+INSERT INTO public.products_categories(product_id, category_id) VALUES (13, 5);
+INSERT INTO public.products_categories(product_id, category_id) VALUES (14, 5);
+INSERT INTO public.products_categories(product_id, category_id) VALUES (7, 4);
+INSERT INTO public.products_categories(product_id, category_id) VALUES (8, 4);
+INSERT INTO public.products_categories(product_id, category_id) VALUES (8, 5);
+
+
+--task script to select products with categories
 
 select p.name as productName, c.name as categoryName
 from products_categories as p_c
@@ -52,4 +66,3 @@ inner join categories as c
 right join products as p
    on p.product_id = p_c.product_id
 order by categoryname
-
