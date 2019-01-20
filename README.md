@@ -10,3 +10,6 @@ IShape circle = GetCircle(); //some method to instantiate a circle
 Console.Writeline(shapeTool.CalculateArea(triangle));
 Console.Writeline(shapeTool.CalculateArea(circle));
 ```
+
+## Sql scripts
+https://github.com/baguwka/MindboxTask/blob/master/Sql/scripts.sql
